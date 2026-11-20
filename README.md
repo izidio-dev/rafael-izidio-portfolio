@@ -2,7 +2,7 @@
 
 Site pessoal com apresentação, habilidades, serviços, projetos e contatos.
 
-**Ver ao vivo:** https://rafael-izidio.brmizidio.workers.dev
+**Ver ao vivo:** https://rafael-izidio-portfolio.brmizidio.workers.dev
 
 ## Tecnologias
 

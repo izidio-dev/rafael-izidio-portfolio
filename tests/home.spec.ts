@@ -14,11 +14,6 @@ test("botão principal leva ao WhatsApp", async ({ page }) => {
   await expect(cta).toHaveAttribute("href", /^https:\/\/wa\.me\/55\d+\?text=/);
 });
 
-test("sem currículo cadastrado, botão de currículo não aparece", async ({ page }) => {
-  await page.goto("/");
-  await expect(page.getByRole("link", { name: "Baixar currículo" })).toHaveCount(0);
-});
-
 test("com movimento reduzido, tudo visível sem rolar", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
@@ -61,4 +56,14 @@ test("projeto de cliente real tem link ao vivo e GitHub/LinkedIn aparecem", asyn
   await expect(page.getByRole("link", { name: /Ver ao vivo/ }).first()).toHaveAttribute("href", "https://dhlimpservice.pages.dev/");
   await expect(page.locator("#contato a[href='https://github.com/izidio-dev']")).toHaveCount(1);
   await expect(page.locator("#contato a[href='https://www.linkedin.com/in/rafael-izidio-093151400']")).toHaveCount(1);
+});
+
+test("botão baixa o currículo em PDF", async ({ page }) => {
+  await page.goto("/");
+  const botao = page.getByRole("link", { name: "Baixar currículo" });
+  await expect(botao).toHaveAttribute("href", "/Curriculo-Rafael-Moniz-Izidio.pdf");
+  const resposta = await page.request.get("/Curriculo-Rafael-Moniz-Izidio.pdf");
+  expect(resposta.status()).toBe(200);
+  expect(resposta.headers()["content-type"]).toContain("pdf");
+  await expect(page.getByRole("link", { name: "Ver projetos" })).toBeVisible();
 });

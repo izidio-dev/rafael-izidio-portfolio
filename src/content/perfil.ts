@@ -70,7 +70,7 @@ export const perfil: Perfil = {
     "Estou em busca de um estágio na área de desenvolvimento, onde eu possa somar com dedicação e crescer junto com a equipe.",
   ],
   meta: "Conquistar meu estágio em desenvolvimento e, a cada projeto entregue, me tornar um profissional cada vez mais completo.",
-  curriculoUrl: undefined,
+  curriculoUrl: "/Curriculo-Rafael-Moniz-Izidio.pdf",
   contatos: {
     // Contatos vazios (undefined) somem do site automaticamente.
     whatsapp: "+55 (11) 91000-6468",

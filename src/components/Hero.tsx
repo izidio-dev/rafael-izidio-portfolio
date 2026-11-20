@@ -37,7 +37,7 @@ export function Hero() {
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
               </a>
             )}
-            {perfil.curriculoUrl ? (
+            {perfil.curriculoUrl && (
               <a
                 href={perfil.curriculoUrl}
                 download
@@ -46,11 +46,10 @@ export function Hero() {
                 Baixar currículo
                 <Download className="size-4" aria-hidden />
               </a>
-            ) : (
-              <a href="#projetos" className="inline-flex items-center rounded-full border border-borda px-6 py-3.5 font-medium transition-colors hover:border-suave">
-                Ver projetos
-              </a>
             )}
+            <a href="#projetos" className="inline-flex items-center rounded-full border border-borda px-6 py-3.5 font-medium transition-colors hover:border-suave">
+              Ver projetos
+            </a>
           </div>
         </Reveal>
         <Reveal atraso={320}>
