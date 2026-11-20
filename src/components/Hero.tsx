@@ -7,7 +7,10 @@ import { Reveal } from "./Reveal";
 
 export function Hero() {
   return (
-    <section id="topo" className="relative overflow-x-clip mx-auto grid min-h-[100svh] max-w-6xl items-center gap-14 px-5 pt-28 pb-16 md:grid-cols-[1.35fr_1fr] md:pt-16">
+    // O corte lateral fica na largura da tela inteira (não no bloco central),
+    // assim o brilho atrás da foto não aparece cortado em linha reta.
+    <div className="overflow-x-clip">
+    <section id="topo" className="relative mx-auto grid min-h-[100svh] max-w-6xl items-center gap-14 px-5 pt-28 pb-16 md:grid-cols-[1.35fr_1fr] md:pt-16">
       {/* Texto à esquerda */}
       <div>
         <Reveal>
@@ -79,5 +82,6 @@ export function Hero() {
         </div>
       </Reveal>
     </section>
+    </div>
   );
 }
