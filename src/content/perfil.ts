@@ -104,7 +104,7 @@ export const perfil: Perfil = {
     { nome: "JavaScript", nivel: "Básico" },
     { nome: "Java", nivel: "Básico" },
   ],
-  estudando: ["Node.js", "React", "Next.js", "TypeScript", "Supabase"],
+  estudando: ["Node.js", "React", "Next.js", "TypeScript", "Supabase", "Docker", "Spring Boot", "PostgreSQL"],
   projetos: [
     {
       titulo: "D&H Limp Service — Limpeza profissional",
