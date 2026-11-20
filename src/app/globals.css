@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+/* Paleta do portfólio (definida no design). */
+@theme {
+  --color-fundo: #0e0f11;
+  --color-superficie: #16181c;
+  --color-borda: #24272d;
+  --color-texto: #ecedef;
+  --color-suave: #9ba1ab;
+  --color-destaque: #4c7dff;
+  --font-display: var(--font-display);
+  --font-sans: var(--font-corpo);
+  --font-mono: var(--font-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: var(--color-fundo);
+  color: var(--color-texto);
+  font-family: var(--font-corpo), system-ui, sans-serif;
+  /* Linhas diagonais bem finas no fundo — a "textura" do portfólio. */
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgb(255 255 255 / 0.025) 0 1px,
+    transparent 1px 22px
+  );
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-destaque);
+  color: #fff;
+}
+
+/* ---------- Animação de entrada das seções ----------
+   O conteúdo só fica escondido DEPOIS que o JavaScript carrega (classe
+   "js" no <html>). Sem JS, tudo aparece normalmente. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--atraso, 0ms);
+}
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Quem pediu menos movimento no celular/computador não vê animação. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

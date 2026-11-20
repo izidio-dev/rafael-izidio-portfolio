@@ -1,0 +1,9 @@
+{
+  // Publica o site estático gerado pelo "npm run build" (pasta out/) no Cloudflare Workers
+  "name": "rafael-izidio",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
